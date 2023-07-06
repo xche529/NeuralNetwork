@@ -16,7 +16,7 @@ for filename in os.listdir(pic_folder):
         image.close()
         image_data = [number]
         for pixel in pixels:
-            image_data.append(pixel)
+            image_data.append(abs(255 - pixel))
         with open(csv_file, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(image_data)

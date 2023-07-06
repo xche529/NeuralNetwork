@@ -16,7 +16,7 @@ for filename in os.listdir(row_folder):
         file_path = os.path.join(row_folder, filename)
         # Open the image
         image = Image.open(file_path)
-        resized_image = image.resize((500, 500))
+        resized_image = image.resize((28, 28))
         next_suffix += 1
         filename = f'{target_number}_processed_image_{next_suffix}.png'
         save_path = os.path.join(target_folder, filename)
@@ -24,6 +24,7 @@ for filename in os.listdir(row_folder):
         image.close()
         resized_image.close()
 
+print("Done!")
         
 
 #plt.imshow(resized_image)

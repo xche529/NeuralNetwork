@@ -2,6 +2,7 @@ from neuralNetwork import neuralNetwork
 import numpy
 import json
 import neural_parameters as np
+from neural_parameters import create
 
 #this is a script where you can test the neural network
 
@@ -12,12 +13,8 @@ with open(weigth_file_name, 'r') as file:
     wih = weight_list[0]
     who = weight_list[1]
 
-i = np.i()
-o = np.o()  
-h = np.h()
-Lr = np.Lr()
 
-n = neuralNetwork(i, h, o, Lr)
+n = np.create()
 n.who = numpy.array(who)
 n.wih = numpy.array(wih)
 
@@ -44,6 +41,6 @@ for image in test_list:
     pass
 
 #display the result
-print(scorecard)
+#print(scorecard)
 result = sum(scorecard) / len(scorecard)
 print("performance = ", result, sum(scorecard), "out of", len(scorecard))

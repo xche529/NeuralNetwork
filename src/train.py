@@ -3,10 +3,6 @@ import numpy
 import json
 import neural_parameters as np
 #this is the script where you can train the neural network 
-i = np.i()
-o = np.o()  
-h = np.h()
-Lr = np.Lr()
 
 train_file_name = input("Enter the name of the file containing the training data: ")
 train_file_name += ".csv"
@@ -21,7 +17,7 @@ with open(weight_file_name, 'r') as file:
     wih = weight_list[0]
     who = weight_list[1]
 
-n = neuralNetwork(i, h, o, Lr)
+n = np.create()
 n.who = numpy.array(who)
 n.wih = numpy.array(wih)
 
@@ -30,8 +26,8 @@ n.wih = numpy.array(wih)
 for image in train_list:
     all_values = image.split(',')
     scaled_input = (numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
+    #create the target output values (all 0.01, except the desired label which is 0.99)
     targets = numpy.zeros(o) + 0.01
-
     targets[int(all_values[0])] = 0.99
     n.train(scaled_input, targets)
 pass

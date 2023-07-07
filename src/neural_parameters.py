@@ -1,14 +1,21 @@
-
+from neuralNetwork import neuralNetwork
 #this is a file to store all the parameters for the neural network
-
+i = 784
+o = 10
+h = 100 
+Lr = 0.2
+n = neuralNetwork(i, h, o, Lr)
 def i() :
-    return 784
+    return i
 
 def o() :
-    return 10
+    return o
 
-def h() :
-    return 100
+def h() : 
+    return h
 
 def Lr() :
-    return 0.3
+    return Lr
+
+def create():
+    return n

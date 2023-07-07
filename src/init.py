@@ -5,11 +5,7 @@ import json
 import neural_parameters as np
 
 #this is script where you can create the weights for the neural network and save it to a file
-i = np.i()
-o = np.o()  
-h = np.h()
-Lr = np.Lr()
-n = neuralNetwork(i, h, o, Lr)
+n = np.create()
 file_name = input("Enter the name of the file you want to save the neural Network to: ")
 file_name = file_name + '.json'
 wih = n.wih.tolist()

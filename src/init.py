@@ -2,11 +2,19 @@ from neuralNetwork import neuralNetwork
 import numpy
 import matplotlib.pyplot as plt
 import json
+import neural_parameters as np
 
-#this is the main script where you can build and train the neural network and test it
-input = 784
-output = 10
-hidden = 100
-Lr = 0.4
-n = neuralNetwork(input, hidden, output, Lr)
-name = input("Enter the name of the file you want to save the neural Network to: ")
+#this is script where you can create the weights for the neural network and save it to a file
+i = np.i()
+o = np.o()  
+h = np.h()
+Lr = np.Lr()
+n = neuralNetwork(i, h, o, Lr)
+file_name = input("Enter the name of the file you want to save the neural Network to: ")
+file_name = file_name + '.json'
+wih = n.wih.tolist()
+who = n.who.tolist()
+weight = [wih, who]
+with open(file_name, 'w') as file:
+    json.dump(weight, file)
+print("Done!")

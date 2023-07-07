@@ -1,27 +1,45 @@
 from neuralNetwork import neuralNetwork
 import numpy
-import matplotlib.pyplot as plt
+import json
+import neural_parameters as np
 #this is the script where you can train the neural network 
-input = 784
-output = 10
-hidden = 100
-Lr = 0.4
-data_file = open("train_data.csv", 'r')
-data_list = data_file.readlines()
-data_file.close()
+i = np.i()
+o = np.o()  
+h = np.h()
+Lr = np.Lr()
 
-num_train = int(input("Enter the number of test run you want: "))
-file = input("Enter the name of the file you want to save the neural network to: ")
+train_file_name = input("Enter the name of the file containing the training data: ")
+train_file_name += ".csv"
+train_file = open(train_file_name, 'r')
+train_list = train_file.readlines()
+train_file.close()
 
-n = neuralNetwork(input, hidden, output, Lr)
+weight_file_name = input("Enter the name of the file you have the weight: ")
+weight_file_name += ".json"
+with open(weight_file_name, 'r') as file:
+    weight_list = json.load(file)
+    wih = weight_list[0]
+    who = weight_list[1]
+
+n = neuralNetwork(i, h, o, Lr)
+n.who = numpy.array(who)
+n.wih = numpy.array(wih)
+
 
 #training process
-for image in data_list:
+for image in train_list:
     all_values = image.split(',')
     scaled_input = (numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
-    targets = numpy.zeros(output) + 0.01
+    targets = numpy.zeros(o) + 0.01
 
     targets[int(all_values[0])] = 0.99
-    print(targets)
     n.train(scaled_input, targets)
 pass
+
+wih = n.wih.tolist()
+who = n.who.tolist()
+
+weight = [wih, who]
+with open(weight_file_name, 'w') as file:
+    json.dump(weight, file)
+print("Done!")

@@ -1,11 +1,13 @@
-from NeuralNetwork import neuralNetwork
+from neuralNetwork import neuralNetwork
 import numpy
 import matplotlib.pyplot as plt
 
+
+#this is the main script where you can build and train the neural network and test it
 input = 784
 output = 10
 hidden = 100
-Lr = 0.3
+Lr = 0.4
 data_file = open("train_data.csv", 'r')
 data_list = data_file.readlines()
 data_file.close()
@@ -27,7 +29,10 @@ for image in data_list:
     print(targets)
     n.train(scaled_input, targets)
 pass
-image = data_list[50]
+
+
+#this is the testing process below  
+image = data_list[1]
 all_values = image.split(',')
 scaled_input = (numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
 

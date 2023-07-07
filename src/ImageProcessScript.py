@@ -18,7 +18,7 @@ for filename in os.listdir(row_folder):
         image = Image.open(file_path)
         resized_image = image.resize((28, 28))
         next_suffix += 1
-        filename = f'{target_number}_processed_image_{next_suffix}.png'
+        filename = f'{next_suffix}_processed_image_{target_number}.png'
         save_path = os.path.join(target_folder, filename)
         resized_image.save(save_path)
         image.close()

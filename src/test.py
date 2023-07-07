@@ -35,6 +35,8 @@ for image in test_list:
     scaled_input = (numpy.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
     outputs = n.query(scaled_input)
     label = numpy.argmax(outputs)
+    #print("correct label: ", correct_label, "network's answer: ", label)
+    #print(outputs)
     if label == correct_label:
         scorecard.append(1)
     else:
@@ -44,4 +46,4 @@ for image in test_list:
 #display the result
 print(scorecard)
 result = sum(scorecard) / len(scorecard)
-print("performance = ", result)
+print("performance = ", result, sum(scorecard), "out of", len(scorecard))

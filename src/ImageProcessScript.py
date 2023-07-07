@@ -2,8 +2,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import os
 
-
-
 row_folder = input("Enter the path to the folder containing the raw images: ")
 target_number = input("Enter the number these images are of: ")
 target_folder = input("Enter the path to the folder you want to save the processed images to: ")

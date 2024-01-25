@@ -1,8 +1,8 @@
-from neuralNetwork import neuralNetwork
+from old_version.neuralNetwork import neuralNetwork
 import numpy
 import json
-import neural_parameters as np
-from neural_parameters import create
+import old_version.neural_parameters as np
+from old_version.neural_parameters import create
 
 #this is a script where you can test the neural network
 

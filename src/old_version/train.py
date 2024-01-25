@@ -1,7 +1,7 @@
-from neuralNetwork import neuralNetwork
+from old_version.neuralNetwork import neuralNetwork
 import numpy
 import json
-import neural_parameters as np
+import old_version.neural_parameters as np
 #this is the script where you can train the neural network 
 
 train_file_name = input("Enter the name of the file containing the training data: ")

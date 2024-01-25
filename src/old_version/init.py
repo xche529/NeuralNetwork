@@ -1,8 +1,8 @@
-from neuralNetwork import neuralNetwork
+from old_version.neuralNetwork import neuralNetwork
 import numpy
 import matplotlib.pyplot as plt
 import json
-import neural_parameters as np
+import old_version.neural_parameters as np
 
 #this is script where you can create the weights for the neural network and save it to a file
 n = np.create()

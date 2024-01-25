@@ -25,7 +25,7 @@ class TestBoard:
     def __init__(self, master, width, height):
         self.button = Button(master, text="Test", command=())
         self.license_file_entry = Entry(root,width=30)
-        self.choose_file_button = Button(root, text="Choose File", command=lambda: self.open_file_dialog(self.license_file_entry,[("Excel files", "*.xlsx;*.xls"), ("All files", "*.*")],))
+        self.choose_file_button = Button(root, text="Choose File", command=lambda: self.open_file_dialog([("Excel files", "*.xlsx;*.xls"), ("All files", "*.*")]))
         self.button.grid(row=0, column=0)
         self.license_file_entry.grid(row=1, column=0)
         self.choose_file_button.grid(row=2, column=0)

@@ -1,7 +1,7 @@
-from neuralNetwork import neuralNetwork
+from old_version.neuralNetwork import neuralNetwork
 import numpy
 import json
-import neural_parameters as np
+import old_version.neural_parameters as np
 
 #this is a script where you can reverse the neural network to get the image from the output
 weigth_file_name = input("Enter the name of the file containing the weights: ")

@@ -1,4 +1,4 @@
-from neuralNetwork import neuralNetwork
+from old_version.neuralNetwork import neuralNetwork
 #this is a file to store all the parameters for the neural network
 i = 784
 o = 10

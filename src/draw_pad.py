@@ -5,15 +5,15 @@ import matplotlib.pyplot as pImageTklt
 
 class DrawPad:
     def __init__(self, master, width, height):
-        self.width = int(width)
-        self.height = int(height)
+        self.width = int(width*3/4)
+        self.height = int(height*3/4)
         self.master = master
-        self.canvas = Canvas(master, width=int(width), height=int(height), bg="white")
+        self.canvas = Canvas(master, width=self.width, height=self.height, bg="white")
         self.canvas.grid(row=0, column=0)
         self.canvas.old_coords = None
         self.canvas.bind("<B1-Motion>", self.paint)
         self.canvas.bind("<ButtonRelease-1>", self.release)
-        self.transparent_image = tk.PhotoImage(width=int(width), height=int(height))
+        self.transparent_image = tk.PhotoImage(width=self.width, height=self.height)
         self.canvas.create_image((0, 0), image=self.transparent_image, anchor="nw", state="normal")
 
 

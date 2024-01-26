@@ -15,7 +15,8 @@ class NumberReader:
     
     
     def read_weights(self, weights_file_name):
-        weight_list = json.load(weights_file_name)
-        self.neural_network.who = numpy.array(weight_list[0]) 
-        self.neural_network.wih = numpy.array(weight_list[1]) 
+        with open(weights_file_name, 'r') as weights_file:
+            weight_list = json.load(weights_file)
+        self.neural_network.who = numpy.array(weight_list[1]) 
+        self.neural_network.wih = numpy.array(weight_list[0]) 
 

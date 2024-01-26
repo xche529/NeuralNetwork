@@ -9,7 +9,7 @@ class DrawPad:
         self.height = int(height)
         self.master = master
         self.canvas = Canvas(master, width=int(width), height=int(height), bg="white")
-        self.canvas.pack()
+        self.canvas.grid(row=1, column=0)
         self.canvas.old_coords = None
         self.canvas.bind("<B1-Motion>", self.paint)
         self.canvas.bind("<ButtonRelease-1>", self.release)
@@ -51,16 +51,4 @@ class DrawPad:
         label = tk.Label(self.master, image=img_tk)
         label.image = img_tk
         self.label = label
-        self.label.pack()
-
-
-root = Tk()
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-root.title("Draw Pad")
-
-draw_pad = DrawPad(root, screen_width/2, screen_height/2)
-
-button = tk.Button(root, text="Test", command=lambda: draw_pad.display_image(draw_pad.extract_pixels()))
-button.pack()
-root.mainloop()
+        label.grid(row=1, column=0)

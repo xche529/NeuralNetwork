@@ -15,14 +15,17 @@ class DrawPad:
         self.canvas.bind("<ButtonRelease-1>", self.release)
         self.transparent_image = tk.PhotoImage(width=self.width, height=self.height)
         self.canvas.create_image((0, 0), image=self.transparent_image, anchor="nw", state="normal")
-
+        self.line_width = 1
+        self.radius_factor = 2
 
     def paint(self, event):
         print(event.x, event.y)
         x1, y1 = (event.x), (event.y)
         if self.canvas.old_coords:
             x2, y2 = self.canvas.old_coords
-            self.canvas.create_line(x1, y1, x2, y2, width=7, fill="black")
+            self.canvas.create_line(x1, y1, x2, y2, width=self.line_width, fill="black")
+            self.canvas.create_oval(x1 + self.line_width/self.radius_factor, y1 + self.line_width/self.radius_factor,x1 - self.line_width/self.radius_factor, y1 - self.line_width/self.radius_factor,width=1, fill="black")
+            self.canvas.create_oval(x2 + self.line_width/self.radius_factor, y2 + self.line_width/self.radius_factor,x2 - self.line_width/self.radius_factor, y2 - self.line_width/self.radius_factor,width=1, fill="black")
         self.canvas.old_coords = x1, y1
 
     def release(self, event):
@@ -59,3 +62,6 @@ class DrawPad:
         label.image = img_tk
         self.label = label
         label.grid(row=1, column=0)
+        
+    def update_line_width(self, width):
+        self.line_width = int(width)

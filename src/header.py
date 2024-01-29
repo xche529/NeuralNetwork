@@ -4,15 +4,15 @@ from PIL import Image, ImageDraw,ImageTk
 import matplotlib.pyplot as pImageTklt
 
 class Header:
-    def __init__(self, master, width, height, Recognize, Clear, ReadWeights):
-        self.increase_line_width_button = Button(master, text="increase line width", command=())
-        self.decrease_line_width_button = Button(master, text="decrease line width", command=())
+    def __init__(self, master, width, height, Recognize, Clear, ReadWeights, UpdateWidth):
+        self.scale = tk.Scale(master, from_=1, to=20, orient="horizontal", command=UpdateWidth)
         self.clear_button = Button(master, text="clear", command=(Clear))
         self.license_file_entry = Entry(master,width=30)
-        self.choose_file_button = Button(master, text="Choose File", command=lambda: self.open_file_dialog([("json", "*.json"), ("All files", "*.*")],ReadWeights))
+        self.choose_file_button = Button(master, text="Load Weights File:", command=lambda: self.open_file_dialog([("json", "*.json"), ("All files", "*.*")],ReadWeights))
         self.clear_button.grid(row=0, column=4,padx=10)
-        self.increase_line_width_button.grid(row=0, column=3,padx=10)
-        self.decrease_line_width_button.grid(row=0, column=2,padx=10)
+        self.scale.grid(row=0, column=3,padx=10)
+        self.label = tk.Label(master, text="Line Width:")
+        self.label.grid(row=0, column=2,padx=10)
         self.license_file_entry.grid(row=0, column=1,padx=10)
         self.choose_file_button.grid(row=0, column=0,padx=10)
         self.recognize_button = Button(master, text="Recognize", command=(Recognize))

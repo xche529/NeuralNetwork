@@ -23,7 +23,7 @@ class gui:
         self.lower_right_frame = Frame(self.lower_frame, width=screen_width/2, height=screen_height/2)
         self.lower_right_frame.grid(row=0, column=1)
         self.draw_pad = DrawPad(self.lower_left_frame, screen_width/2, screen_height/2)
-        self.header = Header(self.upper_frame, screen_width, screen_height, self.recognize, self.draw_pad.clear, self.number_reader.read_weights)
+        self.header = Header(self.upper_frame, screen_width, screen_height, self.recognize, self.draw_pad.clear, self.number_reader.read_weights,self.draw_pad.update_line_width)
 
         self.result_display_board = ResultDisplayBoard(self.lower_right_frame, screen_width/2, screen_height/2, [0.1,0.2,0.3,0.4])
         self.root.mainloop()
